@@ -1,0 +1,60 @@
+.app-main {
+  width: 100%;
+  position: relative;
+}
+
+.main-content {
+  height: 100%;
+  min-height: 100%;
+}
+
+.sticky-header-table {
+  height: 310px;
+}
+
+.body--dark .sticky-header-table .q-table__top,
+.body--dark .sticky-header-table .q-table__bottom,
+.body--dark .sticky-header-table thead tr:first-child th {
+  background-color: #2a2b2c;
+}
+
+.body--light .sticky-header-table .q-table__top,
+.body--light .sticky-header-table .q-table__bottom,
+.body--light .sticky-header-table thead tr:first-child th {
+  background-color: rgb(249, 249, 249);
+}
+
+.sticky-header-table thead tr th {
+  position: sticky;
+  z-index: 1;
+}
+
+.sticky-header-table thead tr:first-child th {
+  top: 0;
+}
+
+.sticky-header-table.q-table--loading thead tr:last-child th {
+  top: 48px;
+}
+
+.base-markdown-content {
+  padding: 0px 15px 0px 15px;
+  max-width: 900px;
+  margin: 0 auto;
+  -webkit-font-smoothing: antialiased;
+  position: relative;
+}
+
+.toastui-editor-contents {
+  font-family: 'Microsoft JhengHei', 'Open Sans', 'Helvetica Neue', 'Helvetica', 'Arial', '나눔바른고딕',
+    'Nanum Barun Gothic', '맑은고딕', 'Malgun Gothic', sans-serif !important;
+  font-size: 15px !important;
+}
+
+.q-scrollarea__content {
+  max-width: 100%;
+}
+
+code .token.operator {
+  background: none !important;
+}
