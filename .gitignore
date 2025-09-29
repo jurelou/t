@@ -31,3 +31,12 @@ yarn-error.log*
 
 # local .env files
 .env.local*
+
+__pycache__
+app.egg-info
+*.pyc
+.mypy_cache
+.coverage
+htmlcov
+.cache
+.venv
