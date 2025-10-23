@@ -4,7 +4,7 @@ import { colors, setCssVar, Dark } from "quasar";
 const { getPaletteColor, lighten, luminosity } = colors;
 const primaryColor = getPaletteColor("primary");
 const darkColor = "#1d1d1d";
-const darkPageColor = "#121212";
+const darkPageColor = "#475D66";
 
 interface ThemeColor {
   primary: string;

@@ -1,21 +1,21 @@
 import { boot } from "quasar/wrappers";
 import { useTagViewStore } from "src/stores/tagView";
 import { SessionStorage, LoadingBar } from "quasar";
-import type { RouteLocationNormalized } from "vue-router";
+// import type { RouteLocationNormalized } from "vue-router";
 import constantRoutes from "src/router/constantRoutes";
 import type { RouteData } from "src/types";
 
-function handleKeepAlive(to: RouteLocationNormalized) {
-  if (to.matched && to.matched.length > 2) {
-    for (let i = 0; i < to.matched.length; i++) {
-      const element = to.matched[i];
-      if (element?.components?.default?.name === "Layout") {
-        to.matched.splice(i, 1);
-        handleKeepAlive(to);
-      }
-    }
-  }
-}
+// function handleKeepAlive(to: RouteLocationNormalized) {
+//   if (to.matched && to.matched.length > 2) {
+//     for (let i = 0; i < to.matched.length; i++) {
+//       const element = to.matched[i];
+//       if (element?.components?.default?.name === "Layout") {
+//         to.matched.splice(i, 1);
+//         handleKeepAlive(to);
+//       }
+//     }
+//   }
+// }
 
 export default boot(({ router }) => {
   const tagViewStore = useTagViewStore();
@@ -40,7 +40,7 @@ export default boot(({ router }) => {
       } else if (from.fullPath !== to.fullPath) {
         tagViewStore.addTagView(to);
       }
-      handleKeepAlive(to);
+      // handleKeepAlive(to);
     }
   });
 

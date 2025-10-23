@@ -18,7 +18,16 @@ const asyncRoutesChildren: Route[] = [
     path: "/",
     name: "home",
     meta: {
-      title: "router.home",
+      title: "Home :)",
+      icon: "home",
+    },
+  },
+  {
+    component: () => import("pages/something/Table.vue"),
+    path: "/tables",
+    name: "Taaab",
+    meta: {
+      title: "tables!",
       icon: "home",
     },
   },
@@ -71,38 +80,6 @@ const asyncRoutesChildren: Route[] = [
           keepAlive: true,
           roles: ["admin"],
         },
-      },
-    ],
-  },
-  {
-    component: layout,
-    path: "/menu1",
-    name: "menu1",
-    meta: {
-      title: "router.menu1",
-      icon: "filter_1",
-      isOpen: false,
-    },
-    children: [
-      {
-        component: layout,
-        path: "menu2",
-        name: "menu2",
-        meta: {
-          title: "router.menu2",
-          icon: "filter_2",
-        },
-        children: [
-          {
-            component: () => import("pages/expansion-menu/ExpansionMenu.vue"),
-            path: "menu3",
-            name: "menu3",
-            meta: {
-              title: "router.menu3",
-              icon: "filter_3",
-            },
-          },
-        ],
       },
     ],
   },

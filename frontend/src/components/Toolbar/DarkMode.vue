@@ -14,11 +14,16 @@ onMounted(() => {
   const dark: boolean | null = LocalStorage.getItem("dark")
   if (dark !== null) {
     Dark.set(dark)
+    if (dark) {
+      document.documentElement.classList.toggle('my-dark-selector');
+    }
   }
 })
 
 const toggle = () => {
   Dark.toggle()
   LocalStorage.set("dark", Dark.isActive)
+  document.documentElement.classList.toggle('my-dark-selector');
+
 }
 </script>

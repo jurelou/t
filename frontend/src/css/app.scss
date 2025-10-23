@@ -1,6 +1,13 @@
 $color_1: #fff;
 $font-family_1: "Roboto", "-apple-system", "Helvetica Neue", Helvetica, Arial
   sans-serif;
+// Custom font
+@font-face {
+  font-family: funnel;
+  src: url(./fonts/ubuntu/UbuntuSans-Bold.ttf);
+  // font-style: light;
+  // font-weight: 400;
+}
 
 @import "./quasar.variables.scss";
 
@@ -16,7 +23,7 @@ body {
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
   overflow: hidden;
-  font-family: $font-family_1 !important;
+  font-family: 'funnel' !important;
 }
 
 #q-app {
@@ -26,7 +33,7 @@ body {
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
   overflow: hidden;
-  font-family: $font-family_1 !important;
+  font-family: 'funnel' !important;
 }
 
 .custom-form-error-message {

@@ -17,7 +17,6 @@
 import { ref, onMounted, onUnmounted, onActivated, onDeactivated } from "vue";
 import { QScrollArea, SessionStorage } from "quasar";
 import { useRoute } from "vue-router";
-import { storeToRefs } from "pinia";
 
 defineOptions({ name: "BaseContent" });
 

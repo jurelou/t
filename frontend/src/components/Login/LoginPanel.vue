@@ -5,21 +5,21 @@
     </div>
     <div class="col flex justify-center items-center q-pa-md">
       <q-card-section>
-        <ToolbarTitle title="Quasar Admin" size="20px" />
+        <ToolbarTitle title="Hello :)" size="20px" />
       </q-card-section>
       <q-card-section align="center" class="fit q-gutter-y-sm">
         <q-form ref="loginForm" class="custom-form-error-message">
-          <q-input v-model="username" placeholder="請輸入帳號" dense clearable outlined no-error-icon lazy-rules
-            :rules="[(val) => !!val || '請輸入帳號']" />
-          <q-input v-model="password" placeholder="請輸入密碼" dense outlined no-error-icon :type="isPwd ? 'password' : 'text'"
-            lazy-rules :rules="[(val) => !!val || '請輸入密碼']">
+          <q-input v-model="username" placeholder="username" dense clearable outlined no-error-icon lazy-rules
+            :rules="[(val) => !!val ]" />
+          <q-input v-model="password" placeholder="password" dense outlined no-error-icon :type="isPwd ? 'password' : 'text'"
+            lazy-rules :rules="[(val) => !!val]">
             <template v-slot:append>
               <q-icon :name="isPwd ? 'visibility_off' : 'visibility'" class="cursor-pointer" @click="isPwd = !isPwd" />
             </template>
           </q-input>
           <q-btn class="full-width" size="1.2em" rounded unelevated color="primary" :loading="loading"
             @click="onLoginClick">
-            登入
+            Login
           </q-btn>
           <q-banner v-if="message !== ''" inline-actions dense rounded class="text-red">
             {{ message }}

@@ -4,6 +4,7 @@ from starlette.responses import JSONResponse
 from starlette.status import HTTP_422_UNPROCESSABLE_ENTITY
 from fastapi.openapi.utils import validation_error_response_definition
 from fastapi.exceptions import RequestValidationError
+from pydantic import ValidationError
 from fastapi.openapi.constants import REF_PREFIX
 
 from typing import Union
