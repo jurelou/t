@@ -41,6 +41,15 @@ const asyncRoutesChildren: Route[] = [
     },
   },
   {
+    component: () => import("pages/Kanboard.vue"),
+    path: "/kanban",
+    name: "Kanban",
+    meta: {
+      title: "kanban",
+      icon: "insert_chart_outlined",
+    },
+  },
+  {
     component: () => import("pages/table/FitTable.vue"),
     path: "/table",
     name: "FitTable",

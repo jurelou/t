@@ -69,6 +69,8 @@ export default defineConfigWithVueTs(
       '@typescript-eslint/no-unused-vars': 'off',
       // allow debugger during development only
       'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
+      'vue/block-lang': 'off',
+      'vue/no-unused-components': 'off',
     },
   },
 
