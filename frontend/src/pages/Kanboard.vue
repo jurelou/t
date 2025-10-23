@@ -21,13 +21,15 @@
             <!-- <th scope="col">Sport</th> -->
           <!-- </tr>
         </thead> -->
-            <draggable @start="drag = true" @end="drag = false" class="q-gutter-sm q-pa-sm list-group" v-model="column.tasks"  item-key="id" group="42">
+            <draggable v-bind="dragOptions" class="q-pa-sm q-gutter-sm list-group" v-model="column.tasks"  item-key="name" group="42">
                 <template #item="{element}">
+                    <div>
                     <task-card
                     :key="element.id"
                     :task="element"
                     />
 
+                    </div>
                 </template>
             </draggable>
       <!-- </table> -->
@@ -55,7 +57,7 @@ export default {
     dragOptions() {
       return {
         animation: 200,
-        group: "42",
+        group: "description",
         disabled: false,
         ghostClass: "ghost"
       };
@@ -63,7 +65,6 @@ export default {
   },
   data() {
     return {
-        drag: false,
       columns: [
         {
           title: "Backlog",
