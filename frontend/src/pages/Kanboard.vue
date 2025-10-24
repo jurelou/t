@@ -1,71 +1,59 @@
 <template>
-  <base-content class="q-pa-sm">
-      <h3>Draggable table</h3>
+    <base-content class="" scrollable>
+    {{  columns[0] }}
+    <div class="flex justify-center">
+        <div class="min-h-screen flex overflow-x-scroll py-12">
 
-  <div class="flex justify-center">
-      <div class="min-h-screen flex overflow-x-scroll py-12">
+            <div v-for="column in columns" :key="column.title"
+                class="rounded-borders py-3 column-width q-pa-sm">
 
-        <div
-          v-for="column in columns"
-          :key="column.title"
-          class="bg-gray-100 rounded-lg px-3 py-3 column-width rounded mr-4 q-pa-smq-gutter-md" 
-        >
+                <div class="bg-grey-3 rounded-borders">
+                    <h4 class="q-pl-sm">{{ column.title }}</h4>
+                <draggable @change="doMove" v-bind="dragOptions" class="list-group q-pb-xs q-pl-xs q-pr-xs" v-model="column.tasks"   item-key="id" group="42">
+                    <template #item="{element}">
 
-      <!-- <table class="table table-striped"> -->
-        <!-- <thead class="thead-dark">
-          <tr> -->
-            <!-- <th scope="col">Id</th>
-            <th scope="col">Name</th> -->
-          <p class="text-gray-700 font-semibold font-sans tracking-wide text-sm">{{column.title}}</p>
+                        <div class="q-pa-sm list-group-item">
+                            <task-card
+                            :key="element.id"
+                            :task="element"
+                            />
 
-            <!-- <th scope="col">Sport</th> -->
-          <!-- </tr>
-        </thead> -->
-            <draggable v-bind="dragOptions" class="q-pa-sm q-gutter-sm list-group" v-model="column.tasks"  item-key="name" group="42">
-                <template #item="{element}">
-                    <div>
-                    <task-card
-                    :key="element.id"
-                    :task="element"
-                    />
-
-                    </div>
-                </template>
-            </draggable>
-      <!-- </table> -->
+                        </div>
+                    </template>
+                </draggable>
+                </div>
+            </div>
+        </div>
     </div>
-    </div>
-    </div>
-
-
     </base-content>
 </template>
 
-<script>
-import BaseContent from 'src/components/BaseContent/BaseContent.vue';
+<script setup>
+import { ref, watch } from 'vue'
 
+import BaseContent from 'src/components/BaseContent/BaseContent.vue';
 import draggable from 'vuedraggable'
 import TaskCard from 'src/components/TaskCard.vue';
-export default {
-  name: "App",
-  components: {
-    TaskCard,
-    draggable,
-    BaseContent
-  },
-  computed: {
-    dragOptions() {
-      return {
-        animation: 200,
+import { Notify } from 'quasar'
+
+function doMove(e) {
+    if (e.added === undefined) {
+        return
+    }
+    console.log("ADDED", e.added.element)
+    Notify.create('>>', e.added.element)
+
+    // Iterer sur toutes les listes pour trouver la nouvelle position de l'élément cx
+}
+
+const dragOptions = {
+        animation: 320,
         group: "description",
         disabled: false,
         ghostClass: "ghost"
-      };
-    }
-  },
-  data() {
-    return {
-      columns: [
+}
+
+const columns = ref([
         {
           title: "Backlog",
           tasks: [
@@ -180,10 +168,8 @@ export default {
             }
           ]
         }
-      ]
-    };
-  }
-};
+])
+
 </script>
 
 <style scoped>
@@ -191,42 +177,14 @@ export default {
   min-width: 320px;
   width: 320px;
 }
-/* Unfortunately @apply cannot be setup in codesandbox, 
-but you'd use "@apply border opacity-50 border-blue-500 bg-gray-200" here */
-.ghost-card {
-  opacity: 0.5;
-  background: #F7FAFC;
-  border: 1px solid #4299e1;
-}
-.button {
-  margin-top: 35px;
-}
 
-.flip-list-move {
-  transition: transform 0.5s;
-}
-
-.no-move {
-  transition: transform 0s;
-}
 
 .ghost {
   opacity: 0.5;
   background: #F7FAFC;
-  border: 1px solid #4299e1;
+  border: 3px solid #4299e1;
 
 }
 
-.list-group {
-  min-height: 20px;
-}
-
-.list-group-item {
-  cursor: move;
-}
-
-.list-group-item i {
-  cursor: pointer;
-}
 </style>
 

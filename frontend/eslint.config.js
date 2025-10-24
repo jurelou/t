@@ -71,6 +71,7 @@ export default defineConfigWithVueTs(
       'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
       'vue/block-lang': 'off',
       'vue/no-unused-components': 'off',
+      'vue/no-unused-vars': 'off',
     },
   },
 
